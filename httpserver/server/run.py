@@ -34,20 +34,20 @@ while 1:
             #print('q'+leftUrl[0]+'q')
             tail =  ''+leftUrl[0]
 
-            if leftUrl[0] == '/files/test1.txt':
+            if leftUrl[0] == '/media/test1.txt':
                 #print('flag')
                 f = open("../files/test1.txt")
                 str = ''+f.read()
                 client_socket.send(b"HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n")
                 client_socket.send(str.encode())
                 client_socket.close()
-            elif leftUrl[0] == '/files/test2.txt':
+            elif leftUrl[0] == '/media/test2.txt':
                 f = open('../files/test2.txt')
                 str = ''+f.read()
                 client_socket.send(b"HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n")
                 client_socket.send(str.encode())
                 client_socket.close()
-            elif leftUrl[0] == '/files/':
+            elif leftUrl[0] == '/media/':
                 files = os.listdir('../')
                 client_socket.send(b"HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n")
                 client_socket.send('\n\r'.join(files).encode())
